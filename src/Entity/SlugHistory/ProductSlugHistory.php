@@ -32,9 +32,9 @@ class ProductSlugHistory implements ResourceInterface
     #[ORM\Column(type: 'integer')]
     private ?int $id = null;
 
-    /** @ORM\Column(name="slug", type="string", length=255, nullable=false) */
-    #[ORM\Column(name: 'slug', type: 'string', length: 255, nullable: false)]
-    private string $slug;
+    /** @ORM\Column(name="slug", type="string", length=255, nullable=true) */
+    #[ORM\Column(name: 'slug', type: 'string', length: 255, nullable: true)]
+    private ?string $slug;
 
     /** @ORM\Column(name="slug", type="string", length=255, nullable=true) */
     #[ORM\Column(name: 'locale', type: 'string', length: 255, nullable: true)]
@@ -64,12 +64,12 @@ class ProductSlugHistory implements ResourceInterface
         $this->locale = $locale;
     }
 
-    public function getSlug(): string
+    public function getSlug(): ?string
     {
         return $this->slug;
     }
 
-    public function setSlug(string $slug): void
+    public function setSlug(?string $slug): void
     {
         $this->slug = $slug;
     }

@@ -2,6 +2,7 @@ services:
     abenmada_broken_link_handler_plugin.listener.product:
         class: Abenmada\BrokenLinkHandlerPlugin\EventListener\ProductListener
         public: true
+        autowire: true
         tags:
             - { name: kernel.event_listener, event: sylius.product.pre_create, method: preCreate }
             - { name: kernel.event_listener, event: sylius.product.pre_update, method: preUpdate }
@@ -9,6 +10,7 @@ services:
     abenmada_broken_link_handler_plugin.listener.taxon:
         class: Abenmada\BrokenLinkHandlerPlugin\EventListener\TaxonListener
         public: true
+        autowire: true
         tags:
-            - { name: kernel.event_listener, event: sylius.product.pre_create, method: preCreate }
-            - { name: kernel.event_listener, event: sylius.product.pre_update, method: preUpdate }
+            - { name: kernel.event_listener, event: sylius.taxon.pre_create, method: preCreate }
+            - { name: kernel.event_listener, event: sylius.taxon.pre_update, method: preUpdate }

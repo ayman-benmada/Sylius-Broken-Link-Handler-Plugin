@@ -1,0 +1,8 @@
+services:
+    abenmada_broken_link_handler_plugin.factory.product_slug_factory:
+        class: Abenmada\BrokenLinkHandlerPlugin\Factory\ProductSlugHistoryFactory
+        public: true
+
+    abenmada_broken_link_handler_plugin.factory.taxon_slug_factory:
+        class: Abenmada\BrokenLinkHandlerPlugin\Factory\TaxonSlugHistoryFactory
+        public: true

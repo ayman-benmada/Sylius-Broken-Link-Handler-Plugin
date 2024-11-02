@@ -24,7 +24,7 @@ trait TaxonSlugHistoryTrait
         $this->taxonSlugHistories = $taxonSlugHistories;
     }
 
-    public function addSlugHistory(TaxonSlugHistory $taxonSlugHistory): void
+    public function addTaxonSlugHistory(TaxonSlugHistory $taxonSlugHistory): void
     {
         if ($this->taxonSlugHistories->contains($taxonSlugHistory)) {
             return;
@@ -34,8 +34,19 @@ trait TaxonSlugHistoryTrait
         $taxonSlugHistory->setTaxon($this);
     }
 
-    public function removeSlugHistory(TaxonSlugHistory $taxonSlugHistory): void
+    public function removeTaxonSlugHistory(TaxonSlugHistory $taxonSlugHistory): void
     {
         $this->taxonSlugHistories->removeElement($taxonSlugHistory);
+    }
+
+    public function hasTaxonSlugHistory(string $locale, string $slug): bool
+    {
+        foreach ($this->taxonSlugHistories as $taxonSlugHistory) {
+            if ($taxonSlugHistory->getLocale() === $locale && $taxonSlugHistory->getSlug() === $slug) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

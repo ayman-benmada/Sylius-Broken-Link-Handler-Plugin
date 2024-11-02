@@ -4,10 +4,7 @@ services:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
-    Abenmada\BrokenLinkHandlerPlugin\:
-        resource: '../../*'
-        exclude: '../../{Form}'
-
 imports:
     - { resource: "packages/resource.yaml" }
     - { resource: "packages/event.yaml" }
+    - { resource: "packages/factory.yaml" }

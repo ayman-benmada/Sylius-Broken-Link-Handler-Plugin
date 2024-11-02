@@ -4,8 +4,11 @@ sylius_resource:
             driver: doctrine/orm
             classes:
                 model: Abenmada\BrokenLinkHandlerPlugin\Entity\SlugHistory\ProductSlugHistory
+                repository: Abenmada\BrokenLinkHandlerPlugin\Repository\ProductSlugHistoryRepository
+                factory: Abenmada\BrokenLinkHandlerPlugin\Factory\ProductSlugHistoryFactory
 
         abenmada_broken_link_handler_plugin.taxon_slug_history:
             driver: doctrine/orm
             classes:
                 model: Abenmada\BrokenLinkHandlerPlugin\Entity\SlugHistory\TaxonSlugHistory
+                factory: Abenmada\BrokenLinkHandlerPlugin\Factory\TaxonSlugHistoryFactory

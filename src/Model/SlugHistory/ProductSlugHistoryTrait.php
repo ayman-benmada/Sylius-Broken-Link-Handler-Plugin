@@ -24,7 +24,7 @@ trait ProductSlugHistoryTrait
         $this->productSlugHistories = $productSlugHistories;
     }
 
-    public function addSlugHistory(ProductSlugHistory $productSlugHistory): void
+    public function addProductSlugHistory(ProductSlugHistory $productSlugHistory): void
     {
         if ($this->productSlugHistories->contains($productSlugHistory)) {
             return;
@@ -34,8 +34,19 @@ trait ProductSlugHistoryTrait
         $productSlugHistory->setProduct($this);
     }
 
-    public function removeSlugHistory(ProductSlugHistory $productSlugHistory): void
+    public function removeProductSlugHistory(ProductSlugHistory $productSlugHistory): void
     {
         $this->productSlugHistories->removeElement($productSlugHistory);
+    }
+
+    public function hasProductSlugHistory(string $locale, string $slug): bool
+    {
+        foreach ($this->productSlugHistories as $productSlugHistory) {
+            if ($productSlugHistory->getLocale() === $locale && $productSlugHistory->getSlug() === $slug) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
