@@ -1,0 +1,11 @@
+sylius_resource:
+    resources:
+        abenmada_broken_link_handler_plugin.product_slug_history:
+            driver: doctrine/orm
+            classes:
+                model: Abenmada\BrokenLinkHandlerPlugin\Entity\SlugHistory\ProductSlugHistory
+
+        abenmada_broken_link_handler_plugin.taxon_slug_history:
+            driver: doctrine/orm
+            classes:
+                model: Abenmada\BrokenLinkHandlerPlugin\Entity\SlugHistory\TaxonSlugHistory

@@ -4,5 +4,3 @@ parameters:
     excludePaths:
         - src/DependencyInjection/*
     level: max
-    checkGenericClassInNonGenericObjectType: false
-    checkMissingIterableValueType: false
