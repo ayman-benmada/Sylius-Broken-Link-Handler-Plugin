@@ -10,7 +10,7 @@ use Sylius\Component\Channel\Model\ChannelInterface;
 
 class ProductSlugHistoryRepository extends EntityRepository
 {
-    public function findOneByChannelAndLocaleAndSlug(ChannelInterface $channel, string $locale, string $slug): ?ProductSlugHistory
+    public function findOneByChannelAndLocaleAndSlug(ChannelInterface $channel, ?string $locale, ?string $slug): ?ProductSlugHistory
     {
         return $this // @phpstan-ignore-line
             ->createQueryBuilder('o')

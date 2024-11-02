@@ -37,11 +37,11 @@ readonly class Exception404Listener
             return;
         }
 
+        /** @var ?string $locale */
         $locale = $request->attributes->get('_locale');
-        assert(is_string($locale));
 
+        /** @var ?string $slug */
         $slug = $request->attributes->get('slug');
-        assert(is_string($slug));
 
         if ($routeName === 'sylius_shop_product_show') {
             $channel = $this->channelContext->getChannel();

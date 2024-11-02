@@ -9,7 +9,7 @@ use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
 class TaxonSlugHistoryRepository extends EntityRepository
 {
-    public function findOneByLocaleAndSlug(string $locale, string $slug): ?TaxonSlugHistory
+    public function findOneByLocaleAndSlug(?string $locale, ?string $slug): ?TaxonSlugHistory
     {
         return $this // @phpstan-ignore-line
             ->createQueryBuilder('o')
