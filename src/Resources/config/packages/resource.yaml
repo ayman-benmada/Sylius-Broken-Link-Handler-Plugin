@@ -11,4 +11,5 @@ sylius_resource:
             driver: doctrine/orm
             classes:
                 model: Abenmada\BrokenLinkHandlerPlugin\Entity\SlugHistory\TaxonSlugHistory
+                repository: Abenmada\BrokenLinkHandlerPlugin\Repository\TaxonSlugHistoryRepository
                 factory: Abenmada\BrokenLinkHandlerPlugin\Factory\TaxonSlugHistoryFactory
