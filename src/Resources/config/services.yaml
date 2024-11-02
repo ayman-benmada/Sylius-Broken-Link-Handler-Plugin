@@ -10,3 +10,4 @@ services:
 
 imports:
     - { resource: "packages/resource.yaml" }
+    - { resource: "packages/event.yaml" }
