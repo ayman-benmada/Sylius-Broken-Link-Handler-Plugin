@@ -8,3 +8,4 @@ imports:
     - { resource: "packages/resource.yaml" }
     - { resource: "packages/event.yaml" }
     - { resource: "packages/factory.yaml" }
+    - { resource: "packages/menu.yaml" }

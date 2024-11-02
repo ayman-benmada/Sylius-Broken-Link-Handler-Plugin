@@ -1,0 +1,5 @@
+services:
+    abenmada_broken_link_handler_plugin.listener.admin.product.form.menu_builder:
+        class: Abenmada\BrokenLinkHandlerPlugin\Menu\Listener\AdminProductFormMenuListener
+        tags:
+            - { name: kernel.event_listener, event: sylius.menu.admin.product.form, method: addItems }

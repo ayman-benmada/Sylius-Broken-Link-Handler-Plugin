@@ -1,3 +1,6 @@
 abenmada_broken_link_handler_plugin:
     ui:
-        test: test
+        slug_histories: Historique des slugs
+        locale: Locale
+        slugs: Slugs
+        there_is_no_slug_history_for_your_product_yet: Il n'existe pas encore d'historique de slugs pour votre produit.

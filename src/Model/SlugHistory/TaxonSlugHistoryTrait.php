@@ -14,11 +14,13 @@ trait TaxonSlugHistoryTrait
     #[ORM\OneToMany(mappedBy: 'taxon', targetEntity: TaxonSlugHistory::class, cascade: ['all'], orphanRemoval: true)]
     private Collection $taxonSlugHistories;
 
+    /** @return Collection<array-key, TaxonSlugHistory> */
     public function getTaxonSlugHistories(): Collection
     {
         return $this->taxonSlugHistories;
     }
 
+    /** @param Collection<array-key, TaxonSlugHistory> $taxonSlugHistories */
     public function setTaxonSlugHistories(Collection $taxonSlugHistories): void
     {
         $this->taxonSlugHistories = $taxonSlugHistories;
@@ -41,7 +43,7 @@ trait TaxonSlugHistoryTrait
 
     public function hasTaxonSlugHistory(string $locale, string $slug): bool
     {
-        foreach ($this->taxonSlugHistories as $taxonSlugHistory) {
+        foreach ($this->getTaxonSlugHistories() as $taxonSlugHistory) {
             if ($taxonSlugHistory->getLocale() === $locale && $taxonSlugHistory->getSlug() === $slug) {
                 return true;
             }

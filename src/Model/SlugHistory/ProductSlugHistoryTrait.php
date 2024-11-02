@@ -14,11 +14,13 @@ trait ProductSlugHistoryTrait
     #[ORM\OneToMany(mappedBy: 'product', targetEntity: ProductSlugHistory::class, cascade: ['all'], orphanRemoval: true)]
     private Collection $productSlugHistories;
 
+    /** @return Collection<array-key, ProductSlugHistory> */
     public function getProductSlugHistories(): Collection
     {
         return $this->productSlugHistories;
     }
 
+    /** @param Collection<array-key, ProductSlugHistory> $productSlugHistories */
     public function setProductSlugHistories(Collection $productSlugHistories): void
     {
         $this->productSlugHistories = $productSlugHistories;
@@ -39,9 +41,20 @@ trait ProductSlugHistoryTrait
         $this->productSlugHistories->removeElement($productSlugHistory);
     }
 
+    public function getGroupSlugsByLocale(): array
+    {
+        $groupedSlugs = [];
+
+        foreach ($this->getProductSlugHistories() as $productSlugHistory) {
+            $groupedSlugs[$productSlugHistory->getLocale()][] = $productSlugHistory->getSlug();
+        }
+
+        return $groupedSlugs;
+    }
+
     public function hasProductSlugHistory(string $locale, string $slug): bool
     {
-        foreach ($this->productSlugHistories as $productSlugHistory) {
+        foreach ($this->getProductSlugHistories() as $productSlugHistory) {
             if ($productSlugHistory->getLocale() === $locale && $productSlugHistory->getSlug() === $slug) {
                 return true;
             }
