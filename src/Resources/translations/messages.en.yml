@@ -4,3 +4,4 @@ abenmada_broken_link_handler_plugin:
         locale: Locale
         slugs: Slugs
         there_is_no_slug_history_for_your_product_yet: There is no slug history for your product yet.
+        there_is_no_slug_history_for_your_taxon_yet: There is no slug history for your taxon yet.

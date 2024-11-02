@@ -41,6 +41,17 @@ trait TaxonSlugHistoryTrait
         $this->taxonSlugHistories->removeElement($taxonSlugHistory);
     }
 
+    public function getGroupSlugsByLocale(): array
+    {
+        $groupedSlugs = [];
+
+        foreach ($this->getTaxonSlugHistories() as $taxonSlugHistory) {
+            $groupedSlugs[$taxonSlugHistory->getLocale()][] = $taxonSlugHistory->getSlug();
+        }
+
+        return $groupedSlugs;
+    }
+
     public function hasTaxonSlugHistory(string $locale, string $slug): bool
     {
         foreach ($this->getTaxonSlugHistories() as $taxonSlugHistory) {

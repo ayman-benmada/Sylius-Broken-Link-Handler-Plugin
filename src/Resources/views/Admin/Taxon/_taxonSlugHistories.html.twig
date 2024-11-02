@@ -1,0 +1,36 @@
+{% form_theme form '@SyliusUi/Form/imagesTheme.html.twig' %}
+
+<div class="ui segment">
+    <h3 class="ui dividing header">{{ 'abenmada_broken_link_handler_plugin.ui.slug_histories'|trans }}</h3>
+
+    {% set groupedSlugs = taxon.groupSlugsByLocale %}
+
+    {% if groupedSlugs | length > 0 %}
+        <table class="ui celled table">
+            <thead>
+                <tr>
+                    <th>{{ 'abenmada_broken_link_handler_plugin.ui.locale'|trans }}</th>
+                    <th>{{ 'abenmada_broken_link_handler_plugin.ui.slugs'|trans }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for locale, slugs in groupedSlugs %}
+                    <tr>
+                        <td data-label="locale">{{ locale }}</td>
+                        <td data-label="slug">
+                            <ul>
+                                {% for slug in slugs %}
+                                    <li>{{ slug }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="ui info message">
+            <p>{{ 'abenmada_broken_link_handler_plugin.ui.there_is_no_slug_history_for_your_taxon_yet' | trans }}</p>
+        </div>
+    {% endif %}
+</div>

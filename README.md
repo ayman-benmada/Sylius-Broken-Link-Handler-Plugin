@@ -35,6 +35,12 @@ imports:
     - { resource: "@BrokenLinkHandlerPlugin/Resources/config/services.yaml" }
 ```
 
+Copy the view responsible for displaying the taxon creation form :
+````bash
+mkdir -p templates/bundles/SyliusAdminBundle/Taxon
+cp vendor/abenmada/sylius-broken-link-handler-plugin/src/Resources/views/Admin/Taxon/_form.html.twig templates/bundles/SyliusAdminBundle/Taxon/_form.html.twig
+````
+
 Update the entity `src/Entity/Product/Product.php` :
 
 ```php
