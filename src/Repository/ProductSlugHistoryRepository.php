@@ -7,6 +7,7 @@ namespace Abenmada\BrokenLinkHandlerPlugin\Repository;
 use Abenmada\BrokenLinkHandlerPlugin\Entity\SlugHistory\ProductSlugHistory;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 use Sylius\Component\Channel\Model\ChannelInterface;
+use Sylius\Component\Core\Model\ProductInterface;
 
 class ProductSlugHistoryRepository extends EntityRepository
 {
@@ -25,6 +26,21 @@ class ProductSlugHistoryRepository extends EntityRepository
             ->setParameter('enabled', true)
             ->getQuery()
             ->getOneOrNullResult()
+        ;
+    }
+
+    public function slugExistsInOtherProductHistories(ProductInterface $product, ?string $slug): bool
+    {
+        return $this
+            ->createQueryBuilder('o')
+            ->select('COUNT(o.id)')
+            ->innerJoin('o.product', 'product')
+            ->andWhere('product.id != :productId')
+            ->andWhere('o.slug = :slug')
+            ->setParameter('productId', $product->getId())
+            ->setParameter('slug', $slug)
+            ->getQuery()
+            ->getSingleScalarResult() > 0
         ;
     }
 }

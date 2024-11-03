@@ -51,9 +51,11 @@ declare(strict_types=1);
 namespace App\Entity\Product;
 
 use Abenmada\BrokenLinkHandlerPlugin\Model\SlugHistory\ProductSlugHistoryTrait;
+use Abenmada\BrokenLinkHandlerPlugin\Validator\SlugExistsInOtherProductSlugHistories;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Core\Model\Product as BaseProduct;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
 
 /**
  * @ORM\Entity
@@ -69,6 +71,13 @@ class Product extends BaseProduct
     {
         $this->productSlugHistories = new ArrayCollection();
         parent::__construct();
+    }
+
+    public static function loadValidatorMetadata(ClassMetadata $metadata): void
+    {
+        $metadata->addConstraint(new SlugExistsInOtherProductSlugHistories([
+            'groups' => 'sylius',
+        ]));
     }
 }
 ```
