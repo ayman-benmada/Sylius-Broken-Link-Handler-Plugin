@@ -92,9 +92,11 @@ declare(strict_types=1);
 namespace App\Entity\Taxonomy;
 
 use Abenmada\BrokenLinkHandlerPlugin\Model\SlugHistory\TaxonSlugHistoryTrait;
+use Abenmada\BrokenLinkHandlerPlugin\Validator\SlugExistsInOtherTaxonSlugHistories;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Core\Model\Taxon as BaseTaxon;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
 
 /**
  * @ORM\Entity
@@ -110,6 +112,13 @@ class Taxon extends BaseTaxon
     {
         $this->taxonSlugHistories = new ArrayCollection();
         parent::__construct();
+    }
+
+    public static function loadValidatorMetadata(ClassMetadata $metadata): void
+    {
+        $metadata->addConstraint(new SlugExistsInOtherTaxonSlugHistories([
+            'groups' => 'sylius',
+        ]));
     }
 }
 ```

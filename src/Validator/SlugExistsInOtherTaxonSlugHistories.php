@@ -9,9 +9,9 @@ use Symfony\Component\Validator\Constraint;
 /**
  * @Annotation
  */
-class SlugExistsInOtherProductSlugHistories extends Constraint
+class SlugExistsInOtherTaxonSlugHistories extends Constraint
 {
-    public string $message = 'abenmada_broken_link_handler_plugin.error.the_slug_appears_in_the_slug_history_of_another_product';
+    public string $message = 'abenmada_broken_link_handler_plugin.error.the_slug_appears_in_the_slug_history_of_another_taxon';
 
     public function getTargets(): string
     {

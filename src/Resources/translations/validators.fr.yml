@@ -1,0 +1,4 @@
+abenmada_broken_link_handler_plugin:
+    error:
+        the_slug_appears_in_the_slug_history_of_another_product: Le slug figure dans l'historique des slugs d'un autre produit.
+        the_slug_appears_in_the_slug_history_of_another_taxon: Le slug figure dans l'historique des slugs d'une autre taxonomie.
