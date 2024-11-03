@@ -9,15 +9,15 @@
 
 ## Presentation
 
-Whenever you create or update a product's slug, it will be automatically saved in the product's slug history.<br/>
+Whenever you create or update a product's slug, it will be automatically saved in the product's slug history.<br/><br/>
 ![presentation photo](https://github.com/ayman-benmada/sylius-broken-link-handler-plugin/blob/main/src/Resources/public/presentation-1.png?raw=true)
 
-A slug that has already been used for a product can never be reused for another. This ensures that old slugs will always remain associated with the same product, so that when accessing an old slug, the user will be redirected to the new one.<br/>
+A slug that has already been used for a product can never be reused for another. This ensures that old slugs will always remain associated with the same product, so that when accessing an old slug, the user will be redirected to the new one.<br/><br/>
 ![presentation photo](https://github.com/ayman-benmada/sylius-broken-link-handler-plugin/blob/main/src/Resources/public/presentation-2.png?raw=true)
 
 For example, if someone tries to access the URL `/fr_FR/products/000f-grey-jeans`, a 301 redirect will automatically lead to `/fr_FR/products/000f-v2-jean-gris`.<br/>
 
-This slug management system is also implemented for taxons. Thus, when attempting to access the page `/fr_FR/taxons/t-shirts/les-hommes`, a redirection will occur to `/fr_FR/taxons/t-shirts/hommes`.<br/>
+This slug management system is also implemented for taxons. Thus, when attempting to access the page `/fr_FR/taxons/t-shirts/les-hommes`, a redirection will occur to `/fr_FR/taxons/t-shirts/hommes`.<br/><br/>
 ![presentation photo](https://github.com/ayman-benmada/sylius-broken-link-handler-plugin/blob/main/src/Resources/public/presentation-3.png?raw=true)
 
 ## Installation
