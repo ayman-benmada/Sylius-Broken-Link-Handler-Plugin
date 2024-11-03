@@ -57,6 +57,7 @@ readonly class Exception404Listener
             $redirectUrl = $this->router->generate('sylius_shop_product_show', ['_locale' => $productTranslation->getLocale(), 'slug' => $productTranslation->getSlug()]);
         } else {
             $taxonSlugHistory = $this->taxonSlugHistoryRepository->findOneByLocaleAndSlug($locale, $slug);
+
             if ($taxonSlugHistory === null) {
                 return;
             }

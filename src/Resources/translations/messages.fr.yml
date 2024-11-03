@@ -3,5 +3,6 @@ abenmada_broken_link_handler_plugin:
         slug_histories: Historique des slugs
         locale: Locale
         slugs: Slugs
+        current: actuel
         there_is_no_slug_history_for_your_product_yet: Il n'existe pas encore d'historique de slugs pour votre produit.
         there_is_no_slug_history_for_your_taxon_yet: Il n'existe pas encore d'historique de slugs pour votre taxonomie.

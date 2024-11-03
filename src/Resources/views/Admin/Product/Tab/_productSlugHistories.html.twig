@@ -16,12 +16,19 @@
                 </thead>
                 <tbody>
                     {% for locale, slugs in groupedSlugs %}
+                        {% set currentSlug = product.translation(locale).slug ?? null %}
+
                         <tr>
                             <td data-label="locale">{{ locale }}</td>
                             <td data-label="slug">
                                 <ul>
                                     {% for slug in slugs %}
-                                        <li>{{ slug }}</li>
+                                        <li>
+                                            {{ slug }}
+                                            {% if currentSlug is not null and currentSlug is same as slug %}
+                                                <span class="ui teal horizontal label">{{ 'abenmada_broken_link_handler_plugin.ui.current' | trans }}</span>
+                                            {% endif %}
+                                        </li>
                                     {% endfor %}
                                 </ul>
                             </td>
