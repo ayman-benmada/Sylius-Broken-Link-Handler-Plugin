@@ -1,7 +1,7 @@
 {
     "name": "abenmada/sylius-broken-link-handler-plugin",
     "type": "sylius-plugin",
-    "description": "The Broken Link Handler plugin enables automatic permanent redirection from outdated links to updated ones and prevents their use by other entities",
+    "description": "The Broken Link Handler plugin automatically redirects outdated product and taxon slugs to their new versions, ensuring they remain permanent and preventing their reuse by other entities",
     "keywords": ["sylius", "sylius-plugin", "symfony", "e-commerce", "slug", "broken link", "permanent redirect"],
     "license": "MIT",
     "authors": [

@@ -1,7 +1,7 @@
 <h1>Sylius Broken Link Handler Plugin</h1>
 
 <p>
-    The Broken Link Handler plugin enables automatic permanent redirection from outdated links to updated ones and prevents their use by other entities.
+    The Broken Link Handler plugin automatically redirects outdated product and taxon slugs to their new versions, ensuring they remain permanent and preventing their reuse by other entities.
 </p>
 <p>
     The goal is to optimize your site so that search engines can index it more effectively, which will help improve its organic search ranking (SEO).
